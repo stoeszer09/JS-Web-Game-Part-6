@@ -45,9 +45,15 @@ function newNonPlayableCharacter(x, y) {
         })
     }
 
-    function walkWest() {
+    function walkWest(time) {
         direction = 'west'
         element.src = `./assets/red-character/west.gif`
+        return new Promise(function(resolve) {
+            setTimeout(() => {
+                resolve()
+                stop()
+            }, time)
+        })
     }
 
     function walkSouth() {
